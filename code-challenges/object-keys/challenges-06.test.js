@@ -136,10 +136,14 @@ CHALLENGE 5
 
 Write a function named totalCharacters that takes in an array and returns the number of characters in the array.
 ------------------------------------------------------------------------------------------------ */
-
+// name, spouse, children
 const totalCharacters = (arr) => {
   // Solution code here...
-};
+  let total = [];
+  arr.forEach(obj => {
+    let index;
+    
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
