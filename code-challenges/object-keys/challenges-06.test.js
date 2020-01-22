@@ -91,7 +91,19 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-  
+  let children = [];
+  arr.forEach( obj => {
+    let index;
+    if (character === obj.name){
+      Object.keys(obj).forEach( (key,idx) => {
+        if (key === 'children') {
+          index = idx;
+        }
+      });
+      children = Object.values(obj)[index];
+    }
+  });
+  return children.length > 0;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,6 +116,19 @@ The input and output of this function are the same as the input and output from 
 
 const hasChildrenEntries = (arr, character) => {
   // Solution code here...
+  let children = [];
+  arr.forEach(obj => {
+    let index;
+    if (character === obj.name){
+      Object.keys(obj).forEach( (key,idx) => {
+        if (key === 'children') {
+          index = idx;
+        }
+      });
+      children = Object.entries(obj)[index];
+    }
+  });
+  return children[1].length > 0;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,10 +136,14 @@ CHALLENGE 5
 
 Write a function named totalCharacters that takes in an array and returns the number of characters in the array.
 ------------------------------------------------------------------------------------------------ */
-
+// name, spouse, children
 const totalCharacters = (arr) => {
   // Solution code here...
-};
+  let total = [];
+  arr.forEach(obj => {
+    let index;
+    
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
