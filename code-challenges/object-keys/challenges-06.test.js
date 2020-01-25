@@ -1,5 +1,4 @@
 'use strict';
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -16,14 +15,12 @@ const getCourseKeys = (obj) => {
   // Solution code here...
   return Object.keys(obj);
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 Use the characters data below for the remainder of the challenges.
 
 Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
 ------------------------------------------------------------------------------------------------ */
-
 let characters = [
   {
     name: 'Eddard',
