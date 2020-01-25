@@ -138,11 +138,7 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 // name, spouse, children
 const totalCharacters = (arr) => {
-  // Solution code here...
-  let total = [];
-  arr.forEach(obj => {
-    let index;
-    
+  // Solution code here... 
 }
 
 /* ------------------------------------------------------------------------------------------------
