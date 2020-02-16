@@ -13,6 +13,9 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  return input.reduce((accum, cur) => {
+    return accum.concat(cur);
+  }, []).filter(num => num === target).length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,6 +30,11 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  return input.reduce((accum, cur) => {
+    return accum.concat(cur);
+  }, []).reduce((accum, cur) => {
+    return accum += cur;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,6 +51,15 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  return input.map(arr => {
+    return arr.filter(elem => {
+      return typeof(elem) === 'number' && elem % 5 === 0;
+    });
+  }).map(arr => {
+    return arr.map(num => {
+      return 2**num;
+    });
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,6 +126,11 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  return data.filter(obj => {
+    return obj.gender === 'male' || obj.gender === 'female';
+  }).map(obj => {
+    return obj.name;
+  }).join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,6 +141,9 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  return data.reduce((acc, cur) => {
+    return parseInt(acc.height) < parseInt(cur.height) ? acc : cur;
+  }).name;
 };
 
 /* ------------------------------------------------------------------------------------------------
