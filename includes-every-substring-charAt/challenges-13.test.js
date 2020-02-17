@@ -25,6 +25,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
+  let happinessArr = [];
+  arr.forEach( string => {
+    if (string.includes(':)')) {
+      happinessArr.push(string);
+    }
+  });
+  return happinessArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,6 +44,9 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  return arr.map(phoneNumber => {
+    return phoneNumber.replace(/[(|)| |-]/gm, '');
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -49,6 +59,9 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  return str.split('').filter((char, i) => {
+    return i % 2 === 1;
+  }).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,9 +70,9 @@ CHALLENGE 5
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
-const allHappy = (arr) => {
+const allHappy = (arr) =>
   // Solution code here...
-};
+  arr.every(str => /:\)/gm.test(str));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -69,6 +82,9 @@ Write a function named findAnything that takes in an array of strings, along wit
 
 const findAnything = (arr, target) => {
   // Solution code here...
+  let word = target.replace(/\)/gm, '\\)');
+  let regex = new RegExp(word, 'm');
+  return arr.filter(str => regex.test(str));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -79,6 +95,9 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  let word = target.replace(/\)/gm, '\\)');
+  let regex = new RegExp(word, 'm');
+  return arr.every(str => regex.test(str));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -95,6 +114,11 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
+  return arr.map(array => {
+    return array.filter(str => {
+      return !/^.*Brook.*$/gm.test(str);
+    });
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
